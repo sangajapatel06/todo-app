@@ -1,26 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-function InputArea(props) {
-  const [inputText, setInputText] = useState("");
-
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
-
+function ToDoItem(props) {
   return (
-    <div className="form">
-      <input onChange={handleChange} type="text" value={inputText} />
-      <button
-        onClick={() => {
-          props.onAdd(inputText);
-          setInputText("");
-        }}
-      >
-        <span>Add</span>
-      </button>
+    <div
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
+    >
+      <li>{props.text}</li>
     </div>
   );
 }
 
-export default InputArea;
+export default ToDoItem;
